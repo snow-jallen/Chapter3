@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:Chapter3"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.DataContext>
+        <local:SampleDataSource />
+    </Window.DataContext>
+    <StackPanel>
+        <TextBlock Text="Enter a value:" />
+        <TextBox Text="{Binding SampleDependencyProperty, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Text="{Binding SampleDependencyProperty}" />
+        <DockPanel Height="250">
+            <CheckBox DockPanel.Dock="Top" Content="Check me!" />
+            <TextBlock DockPanel.Dock="Right" Text="This is some text" />
+            <Button Content="This should fill the rest, right?" />
+        </DockPanel>
+    </StackPanel>
 </Window>
